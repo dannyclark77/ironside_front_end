@@ -1,2 +1,29 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.year,
+.roster,
+.topseven {
+  float: left;
+}
+
+.year {
+  width: 20%;
+  height: 200px;
+  border: 2px solid black;
+  margin: 0 10px;
+}
+
+.roster {
+  width: 50%;
+  height: 200px;
+  border: 2px solid black;
+  margin: 0 10px;
+}
+
+.topseven {
+  width: 20%;
+  height: 200px;
+  border: 2px solid black;
+  margin: 0 10px;
+}
