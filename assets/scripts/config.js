@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    production: 'https://afternoon-earth-95866.herokuapp.com/',
+    development: 'https://localhost4741/'
   }
 }
 
