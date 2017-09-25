@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Ironside's Top Seven</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -19,25 +19,25 @@
         <form id="sign-up">
           <fieldset>
             <legend>Sign Up</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="text" name="credentials[password]" placeholder="Password">
-            <input type="text" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+            <input type="email" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation">
             <input type="submit" name="submit" value="Sign up!">
           </fieldset>
         </form>
         <form id="sign-in">
         <fieldset>
           <legend>Sign In</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="text" name="credentials[password]" placeholder="Password">
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
           <input type="submit" name="submit" value="Sign in!">
         </fieldset>
       </form>
       <form id="change-password">
         <fieldset>
           <legend>Change Password</legend>
-          <input type="text" name="passwords[old]" placeholder="Old Password">
-          <input type="text" name="passwords[new]" placeholder="New Password">
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
           <input type="submit" name="submit" value="Change Password!">
         </fieldset>
       </form>
@@ -47,8 +47,10 @@
           <input type="submit" name="submit" value="Sign Out">
         </fieldset>
       </form>
+      <p id="authMessage"></p>
     </section>
     <section class='year'>Select Year
+      <button id="2008">2008</button>
     </section>
     <section class='roster'>Roster of Year X
     </section>
