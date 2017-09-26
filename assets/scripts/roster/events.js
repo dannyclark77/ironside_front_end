@@ -10,10 +10,17 @@ const onGet2008Roster = function (event) {
     .catch(ui.get2008Failure)
 }
 
+const getTopSeven = function () {
+  api.getTopSevenRoster()
+    .then(ui.getTopSevenSuccess)
+    .catch(ui.getTopSevenFailure)
+}
+
 const addHandlers = function () {
   $('#2008').on('click', onGet2008Roster)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  getTopSeven
 }

@@ -26,7 +26,18 @@ const postTeamRoster = function (players) {
   })
 }
 
+const getTopSevenRoster = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/teams/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   get2008Roster,
-  postTeamRoster
+  postTeamRoster,
+  getTopSevenRoster
 }

@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const rosterEvents = require('../roster/events')
 
 const signUpSuccess = function (data) {
   $('#authMessage').text('Sign Up Successful! Sign in to continue.')
@@ -15,6 +16,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('#authMessage').text('Sign-In Successful.')
   $('#sign-in').trigger('reset')
+  rosterEvents.getTopSeven()
 }
 
 const signInFailure = function () {
@@ -33,6 +35,7 @@ const changePasswordFailure = function () {
 const signOutSuccess = function (data) {
   store.user = null
   $('#authMessage').text('Sign Out Successful!')
+  $('.topseven').text('Top Seven Selections')
 }
 
 const signOutFailure = function () {
