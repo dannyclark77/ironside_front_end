@@ -10,10 +10,10 @@ const onGet2008Roster = function (event) {
     .catch(ui.get2008Failure)
 }
 
-const getTopSeven = function () {
-  api.getTopSevenRoster()
-    .then(ui.getTopSevenSuccess)
-    .catch(ui.getTopSevenFailure)
+const signInTopSeven = function () {
+  api.signInTopSevenRoster()
+    .then(ui.signInTopSevenSuccess)
+    .catch(ui.signInTopSevenFailure)
 }
 
 const addHandlers = function () {
@@ -22,5 +22,5 @@ const addHandlers = function () {
 
 module.exports = {
   addHandlers,
-  getTopSeven
+  signInTopSeven
 }
