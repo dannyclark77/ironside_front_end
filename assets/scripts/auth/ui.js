@@ -16,7 +16,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('#authMessage').text('Sign-In Successful.')
   $('#sign-in').trigger('reset')
-  rosterEvents.getTopSeven()
+  rosterEvents.signInTopSeven()
 }
 
 const signInFailure = function () {
