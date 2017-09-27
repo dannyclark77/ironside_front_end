@@ -16,11 +16,21 @@ const signInTopSeven = function () {
     .catch(ui.signInTopSevenFailure)
 }
 
+const onDeletePlayer = function () {
+  $('.topseven').on('click', 'ul', function (event) {
+    event.preventDefault()
+    api.deleteEight($(this).data('id'))
+      .then(ui.deletePlayerSuccess)
+      .catch(ui.deletePlayerFailure)
+  })
+}
+
 const addHandlers = function () {
   $('#2008').on('click', onGet2008Roster)
 }
 
 module.exports = {
   addHandlers,
-  signInTopSeven
+  signInTopSeven,
+  onDeletePlayer
 }

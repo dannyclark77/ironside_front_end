@@ -1,5 +1,5 @@
-{{#each players as |player|}}
-<ul>
-  <li>{{player}}</li>
-</ul>
+{{#each data as |team|}}
+  <ul data-id="{{team.id}}">
+    <button>{{team.player.name}}</button>
+  </ul>
 {{/each}}

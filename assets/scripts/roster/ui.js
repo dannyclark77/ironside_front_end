@@ -19,19 +19,24 @@ const get2008Failure = function (error) {
   console.error(error)
 }
 
-const clickTeam = function (data) {
+const clickTeam = function () {
   $('.roster').on('click', 'ul', function (event) {
     event.preventDefault()
-    api.postTeamRoster($(this).data('id'))
-      .then(postTeamSuccess)
-      .catch(postTeamFailure)
+    console.log(topSeven[0].player.name)
+    console.log($(this).text())
+    if ($.grep(topSeven, function (obj) { return obj.player.name }) === $(this).text()) {
+      console.log('Please choose another player')
+    } else {
+      api.postTeamRoster($(this).data('id'))
+        .then(postTeamSuccess)
+        .catch(postTeamFailure)
+    }
   })
 }
 
 const postTeamSuccess = function (data) {
-  topSeven.push(data.team.player.name)
-  $('.topseven').text('')
-  $('.topseven').append(topSeven.slice(-7))
+  topSeven.push(data.team)
+  displayTopSeven()
 }
 
 const postTeamFailure = function (error) {
@@ -41,7 +46,7 @@ const postTeamFailure = function (error) {
 const signInTopSevenSuccess = function (data) {
   data.teams.forEach(function (data) {
     if (data.user.id === store.user.id) {
-      topSeven.push(data.player.name)
+      topSeven.push(data)
     }
   })
   if (topSeven.length > 7) {
@@ -58,22 +63,30 @@ const signInTopSevenFailure = function (error) {
 }
 
 const displayTopSeven = function () {
-  console.log('display Top Seven ran')
-  const showTopSevenHtml = showTopSevenTemplate({ players: topSeven })
-  $('.topseven').append(showTopSevenHtml)
+  if (topSeven.length > 7) {
+    const slicedTopSeven = topSeven.slice(-7)
+    console.log(slicedTopSeven)
+    const showTopSevenHtml = showTopSevenTemplate({ data: slicedTopSeven })
+    $('.topseven').text('')
+    $('.topseven').append(showTopSevenHtml)
+  } else {
+    const showTopSevenHtml = showTopSevenTemplate({ data: topSeven })
+    $('.topseven').text('')
+    $('.topseven').append(showTopSevenHtml)
+  }
 }
 
 const onDeleteEight = function (data) {
   api.deleteEight(data)
-    .then(deleteEightSuccess)
-    .catch(deleteEightFailure)
+    .then(deletePlayerSuccess)
+    .catch(deletePlayerFailure)
 }
 
-const deleteEightSuccess = function () {
-  console.log('Delete ran')
+const deletePlayerSuccess = function () {
+  console.log('delete player success')
 }
 
-const deleteEightFailure = function (error) {
+const deletePlayerFailure = function (error) {
   console.error(error)
 }
 
@@ -81,5 +94,8 @@ module.exports = {
   get2008Success,
   get2008Failure,
   signInTopSevenSuccess,
-  signInTopSevenFailure
+  signInTopSevenFailure,
+  topSeven,
+  deletePlayerSuccess,
+  deletePlayerFailure
 }
