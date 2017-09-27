@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const rosterEvents = require('../roster/events')
+const rosterUi = require('../roster/ui')
 
 const signUpSuccess = function (data) {
   $('#authMessage').text('Sign Up Successful! Sign in to continue.')
@@ -17,6 +18,7 @@ const signInSuccess = function (data) {
   $('#authMessage').text('Sign-In Successful.')
   $('#sign-in').trigger('reset')
   rosterEvents.signInTopSeven()
+  rosterEvents.onDeletePlayer()
 }
 
 const signInFailure = function () {
@@ -34,8 +36,10 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (data) {
   store.user = null
+  rosterUi.topSeven = []
   $('#authMessage').text('Sign Out Successful!')
   $('.topseven').text('Top Seven Selections')
+  $('.roster').text('Roster of Year X')
 }
 
 const signOutFailure = function () {
