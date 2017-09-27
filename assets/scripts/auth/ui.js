@@ -35,9 +35,12 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function (data) {
+  console.log(store)
   store.user = null
-  rosterUi.topSeven = []
+  store.players = null
+  rosterUi.topSeven.length = 0
   $('#authMessage').text('Sign Out Successful!')
+  $('.topseven').empty()
   $('.topseven').text('Top Seven Selections')
   $('.roster').text('Roster of Year X')
 }

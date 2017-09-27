@@ -2,12 +2,14 @@
 
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
-const onGet2008Roster = function (event) {
+const onGetPlayers = function (event) {
   event.preventDefault()
-  api.get2008Roster()
-    .then(ui.get2008Success)
-    .catch(ui.get2008Failure)
+  store.year = $(this).data('id')
+  api.getPlayers()
+    .then(ui.getPlayersSuccess)
+    .catch(ui.getPlayersFailure)
 }
 
 const signInTopSeven = function () {
@@ -17,8 +19,9 @@ const signInTopSeven = function () {
 }
 
 const onDeletePlayer = function () {
-  $('.topseven').on('click', 'ul', function (event) {
+  $('.topseven').off().on('click', 'ul', function (event) {
     event.preventDefault()
+    console.log($(this))
     api.deleteEight($(this).data('id'))
       .then(ui.deletePlayerSuccess)
       .catch(ui.deletePlayerFailure)
@@ -26,7 +29,16 @@ const onDeletePlayer = function () {
 }
 
 const addHandlers = function () {
-  $('#2008').on('click', onGet2008Roster)
+  $('[data-id=2008]').off().on('click', onGetPlayers)
+  $('[data-id=2009]').off().on('click', onGetPlayers)
+  $('[data-id=2010]').off().on('click', onGetPlayers)
+  $('[data-id=2011]').off().on('click', onGetPlayers)
+  $('[data-id=2012]').off().on('click', onGetPlayers)
+  $('[data-id=2013]').off().on('click', onGetPlayers)
+  $('[data-id=2014]').off().on('click', onGetPlayers)
+  $('[data-id=2015]').off().on('click', onGetPlayers)
+  $('[data-id=2016]').off().on('click', onGetPlayers)
+  $('[data-id=2017]').off().on('click', onGetPlayers)
 }
 
 module.exports = {

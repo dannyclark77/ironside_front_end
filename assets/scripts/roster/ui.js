@@ -7,30 +7,32 @@ const api = require('./api')
 
 let topSeven = []
 
-const get2008Success = function (data) {
+const getPlayersSuccess = function (data) {
   store.players = data.players
-  const showRosterHtml = showRosterTemplate({ players: store.players })
-  $('.roster').text('')
+  const filteredPlayers = store.players.filter(function (obj) {
+    return obj.year === store.year
+  })
+  const showRosterHtml = showRosterTemplate({ players: filteredPlayers })
+  $('.roster').empty()
   $('.roster').append(showRosterHtml)
   clickTeam()
+  store.players = null
 }
 
-const get2008Failure = function (error) {
+const getPlayersFailure = function (error) {
   console.error(error)
 }
 
 const clickTeam = function () {
-  $('.roster').on('click', 'ul', function (event) {
+  $('.roster').off().on('click', 'ul', function (event) {
     event.preventDefault()
-    console.log(topSeven[0].player.name)
-    console.log($(this).text())
-    if ($.grep(topSeven, function (obj) { return obj.player.name }) === $(this).text()) {
-      console.log('Please choose another player')
-    } else {
-      api.postTeamRoster($(this).data('id'))
-        .then(postTeamSuccess)
-        .catch(postTeamFailure)
-    }
+    // if ($.grep(topSeven, function (obj) { return obj.player.name }) === $(this).text()) {
+    //   console.log('Please choose another player')
+    // } else {
+    api.postTeamRoster($(this).data('id'))
+      .then(postTeamSuccess)
+      .catch(postTeamFailure)
+    // }
   })
 }
 
@@ -63,9 +65,9 @@ const signInTopSevenFailure = function (error) {
 }
 
 const displayTopSeven = function () {
+  console.log(topSeven)
   if (topSeven.length > 7) {
     const slicedTopSeven = topSeven.slice(-7)
-    console.log(slicedTopSeven)
     const showTopSevenHtml = showTopSevenTemplate({ data: slicedTopSeven })
     $('.topseven').text('')
     $('.topseven').append(showTopSevenHtml)
@@ -82,7 +84,7 @@ const onDeleteEight = function (data) {
     .catch(deletePlayerFailure)
 }
 
-const deletePlayerSuccess = function () {
+const deletePlayerSuccess = function (data) {
   console.log('delete player success')
 }
 
@@ -91,8 +93,8 @@ const deletePlayerFailure = function (error) {
 }
 
 module.exports = {
-  get2008Success,
-  get2008Failure,
+  getPlayersSuccess,
+  getPlayersFailure,
   signInTopSevenSuccess,
   signInTopSevenFailure,
   topSeven,

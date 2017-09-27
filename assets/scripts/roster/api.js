@@ -3,7 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const get2008Roster = function () {
+const getPlayers = function () {
   return $.ajax({
     url: config.apiOrigin + '/players/',
     method: 'GET'
@@ -47,7 +47,7 @@ const deleteEight = function (id) {
 }
 
 module.exports = {
-  get2008Roster,
+  getPlayers,
   postTeamRoster,
   signInTopSevenRoster,
   deleteEight
