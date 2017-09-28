@@ -21,7 +21,11 @@ const signInTopSeven = function () {
 const onDeletePlayer = function () {
   $('.topseven').off().on('click', 'ul', function (event) {
     event.preventDefault()
-    console.log($(this))
+    $(this).remove()
+    const index = ui.topSeven.findIndex(x => x.id === $(this).data('id'))
+    console.log(ui.topSeven)
+    ui.topSeven.splice(index, 1)
+    console.log(ui.topSeven)
     api.deleteEight($(this).data('id'))
       .then(ui.deletePlayerSuccess)
       .catch(ui.deletePlayerFailure)

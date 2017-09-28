@@ -5,7 +5,7 @@ const rosterEvents = require('../roster/events')
 const rosterUi = require('../roster/ui')
 
 const signUpSuccess = function (data) {
-  $('#authMessage').text('Sign Up Successful! Sign in to continue.')
+  $('#authMessage').text('Sign Up Successful. Sign in to continue.')
   $('#sign-up').trigger('reset')
 }
 
@@ -15,10 +15,15 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  $('#authMessage').text('Sign-In Successful.')
+  $('#authMessage').text('Sign-In Successful')
   $('#sign-in').trigger('reset')
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-password').show()
+  $('#sign-out').show()
   rosterEvents.signInTopSeven()
   rosterEvents.onDeletePlayer()
+  // $('#authMessage').text('test').delay(2500).fadeIn(300)
 }
 
 const signInFailure = function () {
@@ -35,14 +40,18 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function (data) {
-  console.log(store)
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
   store.user = null
   store.players = null
   rosterUi.topSeven.length = 0
   $('#authMessage').text('Sign Out Successful!')
   $('.topseven').empty()
-  $('.topseven').text('Top Seven Selections')
-  $('.roster').text('Roster of Year X')
+  $('#topseven').text('All Time Ironside Roster')
+  $('#roster').text('Ironside Roster')
+  $('#results').text("This website is designed to allow users to create and share their own picks for Boston Ironside's all time top 7 team. Simply sign in and then select a year to choose from Ironside's roster that year.")
 }
 
 const signOutFailure = function () {
