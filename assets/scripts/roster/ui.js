@@ -5,7 +5,7 @@ const showTopSevenTemplate = require('../templates/top-seven.handlebars')
 const store = require('../store')
 const api = require('./api')
 
-let topSeven = []
+const topSeven = []
 
 const getPlayersSuccess = function (data) {
   store.players = data.players
@@ -86,7 +86,6 @@ const onDeleteEight = function (data) {
 }
 
 const deletePlayerSuccess = function (data) {
-  console.log('delete player success')
   displayTopSeven()
 }
 
