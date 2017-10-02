@@ -1,0 +1,12 @@
+<h4>Enter a new player ID to update your All-Time Top Seven List</h4>
+{{#each data as |team|}}
+  <ul>
+    <li>{{team.player.id}}: {{team.player.name}}</li>
+    <form data-id="{{team.id}}">
+      <fieldset>
+        <input type="number" name="patch" placeholder="New Player ID">
+        <input type="submit" name="submit" value="Submit">
+      </fieldset>
+    </form>
+  </ul>
+{{/each}}

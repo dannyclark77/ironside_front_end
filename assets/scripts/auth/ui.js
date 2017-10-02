@@ -23,6 +23,8 @@ const signInSuccess = function (data) {
   $('#sign-out').show()
   rosterEvents.signInTopSeven()
   rosterEvents.onDeletePlayer()
+  $('.year').show()
+  $('.patch').show()
   // $('#authMessage').text('test').delay(2500).fadeIn(300)
 }
 
@@ -44,12 +46,16 @@ const signOutSuccess = function (data) {
   $('#sign-in').show()
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('.year').hide()
+  $('.roster').text('')
   store.user = null
   store.players = null
   rosterUi.topSeven.length = 0
   $('#authMessage').text('Sign Out Successful!')
   $('.topseven').empty()
   $('#topseven').text('All Time Ironside Roster')
+  $('.patch').hide()
+  $('.patch-selection').empty()
   $('#roster').text('Ironside Roster')
   $('#results').text("This website is designed to allow users to create and share their own picks for Boston Ironside's all time top 7 team. Simply sign in and then select a year to choose from Ironside's roster that year.")
 }

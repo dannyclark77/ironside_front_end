@@ -70,6 +70,7 @@ h1 {
 
 .year {
   width: 22%;
+  display: none;
 }
 
 #roster {
@@ -130,4 +131,10 @@ button {
 
 p {
   font-size: 20px;
+}
+
+.patch {
+  clear: both;
+  text-align: center;
+  display: none;
 }

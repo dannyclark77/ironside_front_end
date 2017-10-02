@@ -21,8 +21,8 @@ const getPlayersSuccess = function (data) {
   seasonResults(store.year)
 }
 
-const getPlayersFailure = function (error) {
-  console.error(error)
+const getPlayersFailure = function () {
+  $('.roster').text('An error occurred accessing this roster. Please try again.')
 }
 
 const clickTeam = function () {
@@ -43,8 +43,8 @@ const postTeamSuccess = function (data) {
   displayTopSeven()
 }
 
-const postTeamFailure = function (error) {
-  console.error(error)
+const postTeamFailure = function () {
+  $('.topseven').text('This player has already been selected. Please choose another player.')
 }
 
 const signInTopSevenSuccess = function (data) {
@@ -62,8 +62,8 @@ const signInTopSevenSuccess = function (data) {
   displayTopSeven()
 }
 
-const signInTopSevenFailure = function (error) {
-  console.error(error)
+const signInTopSevenFailure = function () {
+  $('.topseven').text('An error occurred accessing your top seven picks.')
 }
 
 const displayTopSeven = function () {
@@ -89,8 +89,8 @@ const deletePlayerSuccess = function (data) {
   displayTopSeven()
 }
 
-const deletePlayerFailure = function (error) {
-  console.error(error)
+const deletePlayerFailure = function () {
+  $('.topseven').text('An error occurred deleting this player. Please try again.')
 }
 
 const seasonResults = function (data) {
