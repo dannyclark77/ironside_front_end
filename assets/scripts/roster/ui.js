@@ -31,7 +31,7 @@ const postTeamSuccess = function (data) {
 }
 
 const postTeamFailure = function () {
-  $('.topseven').text('This player has already been selected. Please choose another player.')
+  $('#patch-message').text('This player has already been selected. Please choose another player.')
 }
 
 const signInTopSevenSuccess = function (data) {
