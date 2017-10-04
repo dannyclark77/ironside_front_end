@@ -15,7 +15,6 @@ const getPlayersSuccess = function (data) {
   const showRosterHtml = showRosterTemplate({ players: filteredPlayers })
   $('.roster').empty()
   $('.roster').append(showRosterHtml)
-  clickTeam()
   store.players = null
   $('#roster').text('Ironside Roster ' + store.year)
   seasonResults(store.year)
@@ -25,22 +24,10 @@ const getPlayersFailure = function () {
   $('.roster').text('An error occurred accessing this roster. Please try again.')
 }
 
-const clickTeam = function () {
-  $('.roster').off().on('click', 'ul', function (event) {
-    event.preventDefault()
-    // if ($.grep(topSeven, function (obj) { return obj.player.name }) === $(this).text()) {
-    //   console.log('Please choose another player')
-    // } else {
-    api.postTeamRoster($(this).data('id'))
-      .then(postTeamSuccess)
-      .catch(postTeamFailure)
-    // }
-  })
-}
-
 const postTeamSuccess = function (data) {
   topSeven.push(data.team)
   displayTopSeven()
+  $('#patch-message').text('Player Successfully Added')
 }
 
 const postTeamFailure = function () {
@@ -87,6 +74,7 @@ const onDeleteEight = function (data) {
 
 const deletePlayerSuccess = function (data) {
   displayTopSeven()
+  $('#patch-message').text('Player Successfully Deleted')
 }
 
 const deletePlayerFailure = function () {
@@ -94,14 +82,13 @@ const deletePlayerFailure = function () {
 }
 
 const patchTeamSuccess = function () {
-  $('.patch-selection').append('Player successfully updated')
+  $('#patch-message').text('Player Successfully Updated')
   topSeven.length = 0
-  api.signInTopSevenRoster()
-    .then(signInTopSevenSuccess)
 }
 
-const patchTeamFailure = function (error) {
-  console.log(error)
+const patchTeamFailure = function () {
+  $('#patch-message').text('Player already selected. Please choose another player')
+  $('.patch-selection').children().children().trigger('reset')
 }
 
 const seasonResults = function (data) {
@@ -112,13 +99,13 @@ const seasonResults = function (data) {
   } else if (data === 2010) {
     $('#results').text('2010 Season: Record: 52-1, Finish: 2nd')
   } else if (data === 2011) {
-    $('#results').text('2011 Season: Record: 0-0, Finish: 2nd')
+    $('#results').text('2011 Season: Record: 75-2, Finish: 2nd')
   } else if (data === 2012) {
-    $('#results').text('2012 Season: Record: 0-0, Finish: 3rd')
+    $('#results').text('2012 Season: Record: 75-2, Finish: 3rd')
   } else if (data === 2013) {
-    $('#results').text('2013 Season: Record: 0-0, Finish: 3rd')
+    $('#results').text('2013 Season: Record: 75-2, Finish: 3rd')
   } else if (data === 2014) {
-    $('#results').text('2014 Season: Record: 0-0, Finish: 2nd')
+    $('#results').text('2014 Season: Record: 75-2, Finish: 2nd')
   } else if (data === 2015) {
     $('#results').text('2015 Season: Record: 17-11, Finish: 3rd')
   } else if (data === 2016) {
@@ -137,5 +124,7 @@ module.exports = {
   deletePlayerSuccess,
   deletePlayerFailure,
   patchTeamSuccess,
-  patchTeamFailure
+  patchTeamFailure,
+  postTeamSuccess,
+  postTeamFailure
 }

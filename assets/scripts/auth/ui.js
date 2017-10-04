@@ -54,7 +54,7 @@ const signOutSuccess = function (data) {
   $('#authMessage').text('Sign Out Successful!')
   $('.topseven').empty()
   $('#topseven').text('All Time Ironside Roster')
-  $('.patch').hide()
+  $('#patch-message').text('')
   $('.patch-selection').empty()
   $('#roster').text('Ironside Roster')
   $('#results').text("This website is designed to allow users to create and share their own picks for Boston Ironside's all time top 7 team. Simply sign in and then select a year to choose from Ironside's roster that year.")

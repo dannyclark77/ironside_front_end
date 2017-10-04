@@ -55,7 +55,6 @@ const patchTeam = function (data) {
     },
     data: {
       'team': {
-        // 'user_id': data.user_id,
         'player_id': data.player_id
       }
     }
