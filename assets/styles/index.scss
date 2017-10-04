@@ -41,7 +41,7 @@ h1 {
 .roster,
 .topseven {
   float: left;
-  height: 700px;
+  min-height: 100px;
   text-align: center;
 }
 
@@ -137,4 +137,14 @@ p {
   clear: both;
   text-align: center;
   display: none;
+  padding: 20px 0 0;
+}
+
+.patch-selection {
+  text-align: center;
+  font-size: 16px;
+}
+
+.patch-selection li {
+  display: inline-block;
 }

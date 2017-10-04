@@ -1,5 +1,6 @@
 'use strict'
 
+const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
@@ -27,6 +28,7 @@ const onDeletePlayer = function () {
     ui.topSeven.splice(index, 1)
     api.deleteEight($(this).data('id'))
       .then(ui.deletePlayerSuccess)
+      .then(onGetTeam)
       .catch(ui.deletePlayerFailure)
   })
 }
@@ -45,8 +47,12 @@ const onGetTeam = function () {
 }
 
 const onPatchTeam = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
-  console.log('On Patch Team Ran')
+  api.patchTeam(data)
+    .then(ui.patchTeamSuccess)
+    .then(onGetTeam)
+    .catch(ui.patchTeamFailure)
 }
 
 const addHandlers = function () {

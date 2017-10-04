@@ -46,9 +46,26 @@ const deleteEight = function (id) {
   })
 }
 
+const patchTeam = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/teams/' + data.team_id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'team': {
+        // 'user_id': data.user_id,
+        'player_id': data.player_id
+      }
+    }
+  })
+}
+
 module.exports = {
   getPlayers,
   postTeamRoster,
   signInTopSevenRoster,
-  deleteEight
+  deleteEight,
+  patchTeam
 }
