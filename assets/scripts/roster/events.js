@@ -53,12 +53,17 @@ const onGetTeam = function () {
   if (ui.topSeven.length === 0) {
     $('.patch-selection').empty()
     $('.patch-selection').html('<h4>Please add a player to your all-time team list by clicking on a player above</h4>')
+  } else if (ui.topSeven.length > 7) {
+    const slicedTopSeven = ui.topSeven.slice(-7)
+    const getTopSevenHtml = getTopSevenTemplate({ data: slicedTopSeven })
+    $('.patch-selection').empty()
+    $('.patch-selection').append(getTopSevenHtml)
   } else {
     const getTopSevenHtml = getTopSevenTemplate({ data: ui.topSeven })
     $('.patch-selection').empty()
     $('.patch-selection').append(getTopSevenHtml)
-    $('.patch-selection').off().on('submit', 'form', onPatchTeam)
   }
+  $('.patch-selection').off().on('submit', 'form', onPatchTeam)
 }
 
 const onPatchTeam = function (event) {
