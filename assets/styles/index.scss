@@ -13,28 +13,12 @@ h1 {
   line-height: 100px;
 }
 
-#sign-up {
-  float: left;
-  margin: 0 10px;
-}
-
-#sign-in {
-  float: right;
-  margin: 0 10px;
-  text-align: right;
-}
-
-#change-password {
+#btn-change-password {
   display: none;
-  float: left;
-  margin: 0 10px;
 }
 
-#sign-out {
+#btn-sign-out {
   display: none;
-  float: right;
-  margin: 0 10px;
-  text-align: right;
 }
 
 .year,

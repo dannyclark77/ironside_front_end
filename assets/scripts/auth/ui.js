@@ -5,22 +5,24 @@ const rosterEvents = require('../roster/events')
 const rosterUi = require('../roster/ui')
 
 const signUpSuccess = function (data) {
-  $('#authMessage').text('Sign Up Successful. Sign in to continue.')
+  $('.message-form').html('Successfully signed up. Please log in!')
   $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = function () {
-  $('#authMessage').text('Sign Up Unsuccessful')
+  $('.message-form').text('Sign Up Unsuccessful')
+  $('#sign-up').trigger('reset')
 }
 
 const signInSuccess = function (data) {
   store.user = data.user
-  $('#authMessage').text('Sign-In Successful')
+  $('#modal-sign-in').modal('hide')
+  $('.message-form').html('')
   $('#sign-in').trigger('reset')
-  $('#sign-up').hide()
-  $('#sign-in').hide()
-  $('#change-password').show()
-  $('#sign-out').show()
+  $('#btn-sign-up').hide()
+  $('#btn-sign-in').hide()
+  $('#btn-change-password').show()
+  $('#btn-sign-out').show()
   rosterEvents.signInTopSeven()
   rosterEvents.onDeletePlayer()
   $('.year').show()
@@ -29,29 +31,29 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function () {
-  $('#authMessage').text('Sign In Unsuccessful')
+  $('.message-form').text('Sign In Unsuccessful')
 }
 
 const changePasswordSuccess = function (data) {
-  $('#authMessage').text('Password Successfully Changed!')
+  $('.message-form').text('Password Successfully Changed!')
   $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function () {
-  $('#authMessage').text('Password Change Unsuccessful')
+  $('.message-form').text('Password Change Unsuccessful')
 }
 
 const signOutSuccess = function (data) {
-  $('#sign-up').show()
-  $('#sign-in').show()
-  $('#change-password').hide()
-  $('#sign-out').hide()
+  $('#btn-sign-up').show()
+  $('#btn-sign-in').show()
+  $('#btn-change-password').hide()
+  $('#btn-sign-out').hide()
+  $('.message-form').text('')
   $('.year').hide()
   $('.roster').text('')
   store.user = null
   store.players = null
   rosterUi.topSeven.length = 0
-  $('#authMessage').text('Sign Out Successful!')
   $('.topseven').empty()
   $('#topseven').text('All Time Ironside Roster')
   $('#patch-message').text('')
@@ -61,7 +63,7 @@ const signOutSuccess = function (data) {
 }
 
 const signOutFailure = function () {
-  $('#authMessage').text('Sign Out Unsuccessful!')
+  $('.message-form').text('Sign Out Unsuccessful!')
 }
 
 module.exports = {
