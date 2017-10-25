@@ -22,13 +22,17 @@ const signInTopSeven = function () {
 const clickTeam = function () {
   $('.roster').off().on('click', 'ul', function (event) {
     event.preventDefault()
-    // if ($.grep(topSeven, function (obj) { return obj.player.name }) === $(this).text()) {
-    //   console.log('Please choose another player')
-    // } else {
-    api.postTeamRoster($(this).data('id'))
-      .then(ui.postTeamSuccess)
-      .catch(ui.postTeamFailure)
-    // }
+    const name = $(this).text().trim()
+    console.log('this.text is ', name)
+    console.log('topSeven is ', ui.topSeven)
+    console.log('some test is ', ui.topSeven.some(function (obj) { return obj.player.name === name }))
+    if (ui.topSeven.some(function (obj) { return obj.player.name === name })) {
+      $('#patch-message').text('Player is already chosen. Please choose another player.')
+    } else {
+      api.postTeamRoster($(this).data('id'))
+        .then(ui.postTeamSuccess)
+        .catch(ui.postTeamFailure)
+    }
   })
 }
 
