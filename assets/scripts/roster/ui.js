@@ -101,7 +101,7 @@ const seasonResults = function (data) {
   } else if (data === 2016) {
     $('#results').text('2016 Season: Record: 26-2, Finish: 1st')
   } else {
-    $('#results').text('2017 Season: Record: 22-8, Finish: TBD')
+    $('#results').text('2017 Season: Record: 27-9, Finish: 5th')
   }
 }
 
