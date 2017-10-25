@@ -23,11 +23,11 @@ const clickTeam = function () {
   $('.roster').off().on('click', 'ul', function (event) {
     event.preventDefault()
     const name = $(this).text().trim()
-    console.log('this.text is ', name)
-    console.log('topSeven is ', ui.topSeven)
-    console.log('some test is ', ui.topSeven.some(function (obj) { return obj.player.name === name }))
+    console.log('top Seven length is ', ui.topSeven.length)
     if (ui.topSeven.some(function (obj) { return obj.player.name === name })) {
       $('#patch-message').text('Player is already chosen. Please choose another player.')
+    } else if (ui.topSeven.length > 6) {
+      $('#patch-message').text('Maximum number of players has been reached. Please delete a player.')
     } else {
       api.postTeamRoster($(this).data('id'))
         .then(ui.postTeamSuccess)
