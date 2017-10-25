@@ -81,16 +81,6 @@ const deletePlayerFailure = function () {
   $('.topseven').text('An error occurred deleting this player. Please try again.')
 }
 
-const patchTeamSuccess = function () {
-  $('#patch-message').text('Player Successfully Updated')
-  topSeven.length = 0
-}
-
-const patchTeamFailure = function () {
-  $('#patch-message').text('Player already selected. Please choose another player')
-  $('.patch-selection').children().children().trigger('reset')
-}
-
 const seasonResults = function (data) {
   if (data === 2008) {
     $('#results').text('2008 Season: Record: 42-5, Finish: 2nd')
@@ -123,8 +113,6 @@ module.exports = {
   topSeven,
   deletePlayerSuccess,
   deletePlayerFailure,
-  patchTeamSuccess,
-  patchTeamFailure,
   postTeamSuccess,
   postTeamFailure
 }
