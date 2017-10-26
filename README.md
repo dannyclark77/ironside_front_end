@@ -55,5 +55,7 @@ To-Dos:
 - Adjust team players to allow 7 players for each new team-name
 - Post request to include team name
 - Display all created teams with 7 players and a team name
+- Change screen after log-in to team-name prompt
+- Add change team-name option to drop-down menu/nav bar
 Bonus:
 - Total the most-selected players for display
