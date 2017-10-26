@@ -45,3 +45,15 @@ generation to see where they match up.
 
 Back-End Repo: https://github.com/dannyclark77/ironside_back_end
 Back-End Server: https://afternoon-earth-95866.herokuapp.com/
+
+
+To-Dos:
+- Create team name form
+- Change GET for top 7 team from on sign in to on submit of team name
+- Display teams based on team name rather than user id
+- Make posted teams require 7 players
+- Adjust team players to allow 7 players for each new team-name
+- Post request to include team name
+- Display all created teams with 7 players and a team name
+Bonus:
+- Total the most-selected players for display
