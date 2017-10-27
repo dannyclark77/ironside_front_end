@@ -57,5 +57,6 @@ To-Dos:
 - Display all created teams with 7 players and a team name
 - Change screen after log-in to team-name prompt
 - Add change team-name option to drop-down menu/nav bar
+- Add nav bar option - your teams + create new team
 Bonus:
 - Total the most-selected players for display
