@@ -89,13 +89,13 @@ const seasonResults = function (data) {
   } else if (data === 2010) {
     $('#results').text('2010 Season: Record: 52-1, Finish: 2nd')
   } else if (data === 2011) {
-    $('#results').text('2011 Season: Record: 75-2, Finish: 2nd')
+    $('#results').text('2011 Season: Record: 0-0, Finish: 2nd')
   } else if (data === 2012) {
-    $('#results').text('2012 Season: Record: 75-2, Finish: 3rd')
+    $('#results').text('2012 Season: Record: 0-0, Finish: 3rd')
   } else if (data === 2013) {
-    $('#results').text('2013 Season: Record: 75-2, Finish: 3rd')
+    $('#results').text('2013 Season: Record: 0-0, Finish: 3rd')
   } else if (data === 2014) {
-    $('#results').text('2014 Season: Record: 75-2, Finish: 2nd')
+    $('#results').text('2014 Season: Record: 0-0, Finish: 2nd')
   } else if (data === 2015) {
     $('#results').text('2015 Season: Record: 17-11, Finish: 3rd')
   } else if (data === 2016) {
