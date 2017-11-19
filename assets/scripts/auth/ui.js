@@ -27,6 +27,7 @@ const signInSuccess = function (data) {
   rosterEvents.onDeletePlayer()
   $('.year').show()
   $('.patch').show()
+  $('#modal-team-name').modal('show')
   // $('#authMessage').text('test').delay(2500).fadeIn(300)
 }
 

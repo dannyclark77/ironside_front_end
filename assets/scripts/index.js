@@ -4,6 +4,7 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events')
 const rosterEvents = require('./roster/events')
+const teamEvents = require('./team/events')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -17,8 +18,6 @@ $(() => {
 
 $(() => {
   authEvents.addHandlers()
-})
-
-$(() => {
   rosterEvents.addHandlers()
+  teamEvents.addHandlers()
 })
