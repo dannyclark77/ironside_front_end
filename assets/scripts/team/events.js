@@ -8,16 +8,13 @@ const store = require('../store')
 const onTeamName = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  if (data.existingTeamName && data.newTeamName) {
-    $('.message-form').text('Please enter team name in only one field')
-  } else if (data.existingTeamName) {
-    store.teamName = data.existingTeamName
-    api.getTeamName(data.existingTeamName)
+  if (data.teamName) {
+    store.teamName = data.teamName
+    api.getTeamName(data.teamName)
       .then(ui.getTeamNameSuccess)
       .catch(ui.getTeamNameFailure)
-  } else {
-    store.teamName = data.newTeamName
-    $('#modal-team-name').modal('hide')
+  } else if (!data.teamName) {
+    $('.message-form').text('Please enter a team name into the field')
   }
 }
 

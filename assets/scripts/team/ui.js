@@ -1,8 +1,12 @@
 'use strict'
 
+const rosterEvents = require('../roster/events')
+
 const getTeamNameSuccess = function (data) {
-  console.log('Team Name Success data is ', data)
   $('#modal-team-name').modal('hide')
+  $('#team-name').trigger('reset')
+  rosterEvents.signInTopSeven()
+  rosterEvents.onDeletePlayer()
 }
 
 const getTeamNameFailure = function (error) {

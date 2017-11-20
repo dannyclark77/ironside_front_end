@@ -49,8 +49,8 @@
     <section class='intro'>
       <h2>Ironside All Time Team Selection</h2>
       <p id='results'>This website is designed to allow users to create and share their own
-      picks for Boston Ironside's all time top 7 team. Simply sign in and then
-      select a year to choose from Ironside's roster that year.</p>
+      picks for Boston Ironside's all time top 7 team. Sign in to see other user's picks
+      and to select your own all-time team.</p>
     </section>
     <section class='column-titles'>
       <div id='year'>Select Year</div>
@@ -84,15 +84,13 @@
             <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <div class='modal-title' id='exampleModalLabel'>Enter New or Existing Team Name</div>
+            <div class='modal-title' id='exampleModalLabel'>Enter Team Name (can be existing team or new team)</div>
           </div>
           <form id='team-name'>
             <div class='modal-body'>
               <div class='message-form'></div>
-              <label for='existing-team-name'>Existing Team</label>
-              <input id='existing-team-name' class='form-control' type='text' name='existingTeamName' placeholder='Existing Team Name'>
-              <label for='new-team-name'>New Team</label>
-              <input id='new-team-name' class='form-control' type='text' name='newTeamName' placeholder='New Team Name'>
+              <label for='team-name'>Team Name</label>
+              <input id='team-name' class='form-control' type='text' name='teamName' placeholder='New or Existing Team Name'>
             </div>
             <div class='modal-footer'>
               <button type='submit' class='btn btn-primary pull-right' name='submit' value='Team Name'>Submit</button>

@@ -23,11 +23,10 @@ const signInSuccess = function (data) {
   $('#btn-sign-in').hide()
   $('#btn-change-password').show()
   $('#btn-sign-out').show()
-  rosterEvents.signInTopSeven()
-  rosterEvents.onDeletePlayer()
   $('.year').show()
   $('.patch').show()
   $('#team-nav').show()
+  $('#results').text('To create a new all-time team, or edit a currently-existing team, please select `Teams` from the nav bar above.')
   // $('#authMessage').text('test').delay(2500).fadeIn(300)
 }
 
