@@ -17,6 +17,7 @@ const onTeamName = function (event) {
       .catch(ui.getTeamNameFailure)
   } else {
     store.teamName = data.newTeamName
+    $('#modal-team-name').modal('hide')
   }
 }
 
