@@ -136,3 +136,7 @@ p {
 #team-nav {
   display: none;
 }
+
+a:focus {
+  outline: none;
+}
