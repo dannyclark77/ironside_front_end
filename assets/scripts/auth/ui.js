@@ -54,6 +54,7 @@ const signOutSuccess = function (data) {
   $('.roster').text('')
   store.user = null
   store.players = null
+  store.teamName = null
   rosterUi.topSeven.length = 0
   $('.topseven').empty()
   $('#topseven').text('All Time Ironside Roster')

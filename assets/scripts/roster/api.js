@@ -20,7 +20,8 @@ const postTeamRoster = function (players) {
     data: {
       'team': {
         'user_id': store.user.id,
-        'player_id': players
+        'player_id': players,
+        'team_name': store.teamName
       }
     }
   })
