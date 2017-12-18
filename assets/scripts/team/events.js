@@ -18,7 +18,8 @@ const onTeamName = function (event) {
   }
 }
 
-const onGetAllTeams = function () {
+const onGetAllTeams = function (event) {
+  event.preventDefault()
   console.log('getAllTeams ran')
   api.getTeamName()
     .then(ui.getAllTeamsSuccess)
@@ -27,6 +28,7 @@ const onGetAllTeams = function () {
 
 const addHandlers = function () {
   $('#team-name').on('submit', onTeamName)
+  $('[data-id=all-time-rosters]').off().on('click', onGetAllTeams)
 }
 
 module.exports = {

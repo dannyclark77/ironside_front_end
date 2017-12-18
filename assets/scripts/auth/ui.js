@@ -25,8 +25,9 @@ const signInSuccess = function (data) {
   $('#btn-sign-out').show()
   $('.patch').show()
   $('#team-nav').show()
-  $('#results').text('To create a new all-time team, or edit a currently-existing team, please select `Teams` from the nav bar above.')
-  teamEvents.onGetAllTeams()
+  $('#all-time-nav').show()
+  $('#results').text('To create a new all-time team, or edit a currently-existing team, please select `Create/Update Team` from the nav bar above. To see All-Time Teams that have been created by other users, select `All-Time Teams` from the nav bar.')
+  // teamEvents.onGetAllTeams()
   // $('#authMessage').text('test').delay(2500).fadeIn(300)
 }
 
@@ -62,6 +63,8 @@ const signOutSuccess = function (data) {
   $('#roster').text('Ironside Roster')
   $('#results').text("This website is designed to allow users to create and share their own picks for Boston Ironside's all time top 7 team. Simply sign in and then select a year to choose from Ironside's roster that year.")
   $('#team-nav').hide()
+  $('.team-listing').empty()
+  $('#all-time-nav').hide()
 }
 
 const signOutFailure = function () {
