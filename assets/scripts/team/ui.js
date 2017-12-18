@@ -21,24 +21,27 @@ const getTeamNameFailure = function (error) {
 
 const getAllTeamsSuccess = function (data) {
   console.log('getAllTeamsSuccess data is ', data)
-  const allTeamNamesArray = data.teams.map(a => a.team_name)
   const dataFilter = function (value, index, all) {
     return all.indexOf(value) === index
   }
+  const allUsersArray = data.teams.map(a => a.user.id)
+  const uniqueUsersArray = allUsersArray.filter(dataFilter)
+  const allTeamNamesArray = data.teams.map(a => a.team_name)
   const uniqueTeamNamesArray = allTeamNamesArray.filter(dataFilter)
-  uniqueTeamNamesArray.forEach(teamName => {
-    const newTeam = data.teams.map(item => {
-      if (item.team_name === teamName && item.team_name !== null) {
-        return item
+  uniqueUsersArray.forEach(userID => {
+    uniqueTeamNamesArray.forEach(teamName => {
+      const newTeam = data.teams.map(item => {
+        if (item.user.id === userID && item.team_name === teamName && item.team_name !== null) {
+          return item
+        }
+      })
+      const filterTeam = newTeam.filter(player => player !== undefined)
+      if (filterTeam.length >= 7) {
+        console.log('if statement filterTeam is ', filterTeam)
+        const showCreatedTeamsHtml = showCreatedTeamsTemplate({ players: filterTeam })
+        $('.team-listing').append(showCreatedTeamsHtml)
       }
     })
-    const filterTeam = newTeam.filter(player => player !== undefined)
-    console.log('filterTeam is ', filterTeam)
-    if (filterTeam.length >= 7) {
-      console.log('if statement filterTeam is ', filterTeam)
-      const showCreatedTeamsHtml = showCreatedTeamsTemplate({ players: filterTeam })
-      $('.team-listing').append(showCreatedTeamsHtml)
-    }
   })
 }
 
