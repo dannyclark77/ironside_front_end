@@ -1,8 +1,8 @@
 'use strict'
 
 const store = require('../store')
-const rosterEvents = require('../roster/events')
 const rosterUi = require('../roster/ui')
+const teamEvents = require('../team/events')
 
 const signUpSuccess = function (data) {
   $('.message-form').html('Successfully signed up. Please log in!')
@@ -23,10 +23,10 @@ const signInSuccess = function (data) {
   $('#btn-sign-in').hide()
   $('#btn-change-password').show()
   $('#btn-sign-out').show()
-  $('.year').show()
   $('.patch').show()
   $('#team-nav').show()
   $('#results').text('To create a new all-time team, or edit a currently-existing team, please select `Teams` from the nav bar above.')
+  teamEvents.onGetAllTeams()
   // $('#authMessage').text('test').delay(2500).fadeIn(300)
 }
 

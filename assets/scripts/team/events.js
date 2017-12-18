@@ -18,10 +18,18 @@ const onTeamName = function (event) {
   }
 }
 
+const onGetAllTeams = function () {
+  console.log('getAllTeams ran')
+  api.getTeamName()
+    .then(ui.getAllTeamsSuccess)
+    .catch(ui.getAllTeamsFailure)
+}
+
 const addHandlers = function () {
   $('#team-name').on('submit', onTeamName)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetAllTeams
 }
