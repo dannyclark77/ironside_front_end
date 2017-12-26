@@ -16,6 +16,7 @@ const getTeamNameSuccess = function (data) {
   $('.roster').show()
   $('.topseven').show()
   $('.patch').show()
+  $('.team-history').hide()
   $('.team-listing').text('')
 }
 
@@ -31,8 +32,8 @@ const getAllTeamsSuccess = function (data) {
   $('.roster').hide()
   $('.topseven').hide()
   $('.patch').hide()
+  $('.team-history').hide()
   $('.team-listing').text('')
-  console.log('getAllTeamsSuccess data is ', data)
   const dataFilter = function (value, index, all) {
     return all.indexOf(value) === index
   }
@@ -40,16 +41,15 @@ const getAllTeamsSuccess = function (data) {
   const uniqueUsersArray = allUsersArray.filter(dataFilter)
   const allTeamNamesArray = data.teams.map(a => a.team_name)
   const uniqueTeamNamesArray = allTeamNamesArray.filter(dataFilter)
+
   uniqueUsersArray.forEach(userID => {
     uniqueTeamNamesArray.forEach(teamName => {
-      const newTeam = data.teams.map(item => {
-        if (item.user.id === userID && item.team_name === teamName && item.team_name !== null) {
+      const filterTeam = data.teams.filter(item => {
+        if (item.user.id === userID && item.team_name === teamName && item.team_name !== null && item.player !== undefined) {
           return item
         }
       })
-      const filterTeam = newTeam.filter(player => player !== undefined)
       if (filterTeam.length >= 7) {
-        console.log('if statement filterTeam is ', filterTeam)
         const showCreatedTeamsHtml = showCreatedTeamsTemplate({ players: filterTeam })
         $('.team-listing').append(showCreatedTeamsHtml)
       }
@@ -61,9 +61,22 @@ const getAllTeamsFailure = function (error) {
   console.log(error)
 }
 
+const teamHistory = function () {
+  $('#year').hide()
+  $('#roster').hide()
+  $('#topseven').hide()
+  $('.year').hide()
+  $('.roster').hide()
+  $('.topseven').hide()
+  $('.patch').hide()
+  $('.team-listing').text('')
+  $('.team-history').show()
+}
+
 module.exports = {
   getTeamNameSuccess,
   getTeamNameFailure,
   getAllTeamsSuccess,
-  getAllTeamsFailure
+  getAllTeamsFailure,
+  teamHistory
 }

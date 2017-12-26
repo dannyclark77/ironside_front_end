@@ -20,15 +20,20 @@ const onTeamName = function (event) {
 
 const onGetAllTeams = function (event) {
   event.preventDefault()
-  console.log('getAllTeams ran')
   api.getTeamName()
     .then(ui.getAllTeamsSuccess)
     .catch(ui.getAllTeamsFailure)
 }
 
+const onTeamHistory = function (event) {
+  event.preventDefault()
+  ui.teamHistory()
+}
+
 const addHandlers = function () {
   $('#team-name').on('submit', onTeamName)
   $('[data-id=all-time-rosters]').off().on('click', onGetAllTeams)
+  $('#team-history').off().on('click', onTeamHistory)
 }
 
 module.exports = {
