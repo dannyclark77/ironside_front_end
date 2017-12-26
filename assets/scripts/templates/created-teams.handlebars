@@ -1,6 +1,8 @@
-<h3>{{players.0.team_name}}</h3>
-<ol>
-{{#each players as |player|}}
-  <li>{{player.player.name}}</li>
-{{/each}}
-</ol>
+<div class='col-sm-2'>
+  <h3 class='team-name'>{{players.0.team_name}}</h3>
+  <ol>
+  {{#each players as |player|}}
+    <li class='player-name'>{{player.player.name}}</li>
+  {{/each}}
+  </ol>
+</div>

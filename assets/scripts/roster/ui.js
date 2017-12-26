@@ -56,6 +56,9 @@ const signInTopSevenFailure = function () {
 }
 
 const displayTopSeven = function () {
+  $('.year').show()
+  $('.roster').show()
+  $('.topseven').show()
   if (topSeven.length > 7) {
     const slicedTopSeven = topSeven.slice(-7)
     const showTopSevenHtml = showTopSevenTemplate({ data: slicedTopSeven })

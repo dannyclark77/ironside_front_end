@@ -13,9 +13,12 @@
     </head>
     <body class="container-fluid">
 
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
             <div class="navbar-header">
+              <a class="navbar-left ironside-logo" href="#">
+                <img alt="Brand" src="/images/ironside-logo.png">
+              </a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -26,6 +29,9 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
+                <li class='nav-item' id='team-history'>
+                  <a href='' class='nav-link'>Team History</a>
+                </li>
                 <li class='nav-item' id='all-time-nav'>
                   <a href='' data-id='all-time-rosters' class='nav-link'>All-Time Rosters</a>
                 </li>
@@ -47,37 +53,50 @@
         </nav>
 
       <header>
-        <h1>Boston Ironside</h1>
       </header>
+      <h1 class='ironside'>Boston Ironside</h1>
+      <h1 class='sm-ironside'>Ironside</h1>
     <section class='intro'>
       <h2>Ironside All Time Team Selection</h2>
       <p id='results'>This website is designed to allow users to create and share their own
-      picks for Boston Ironside's all time top 7 team. Sign in to see other user's picks
-      and to select your own all-time team.</p>
+      picks for Boston Ironside's all time top 7 team. Click 'All-Time Rosters' from the
+      navigation bar above, or sign in to create and share your own all-time team.</p>
     </section>
-    <section class='column-titles'>
-      <div id='year'>Select Year</div>
-      <div id='roster'>Ironside Roster</div>
-      <div id='topseven'>All Time Ironside Roster</div>
+    <section class='row column-titles'>
+      <div class='col-md-3'>
+        <div class='col-md-12' id='year'>Select Year</div>
+      </div>
+      <div class='col-md-6'>
+        <div class='col-md-12' id='roster'>Ironside Roster</div>
+      </div>
+      <div class='col-md-3'>
+        <div class='col-md-12' id='topseven'>All Time Ironside Roster</div>
+      </div>
     </section>
-    <div class='year'>
-      <button data-id="2008">2008</button>
-      <button data-id="2009">2009</button>
-      <button data-id="2010">2010</button>
-      <button data-id="2011">2011</button>
-      <button data-id="2012">2012</button>
-      <button data-id="2013">2013</button>
-      <button data-id="2014">2014</button>
-      <button data-id="2015">2015</button>
-      <button data-id="2016">2016</button>
-      <button data-id="2017">2017</button>
+    <div class='col-md-3'>
+      <div class='col-md-12 year'>
+        <button data-id="2008">2008</button>
+        <button data-id="2009">2009</button>
+        <button data-id="2010">2010</button>
+        <button data-id="2011">2011</button>
+        <button data-id="2012">2012</button>
+        <button data-id="2013">2013</button>
+        <button data-id="2014">2014</button>
+        <button data-id="2015">2015</button>
+        <button data-id="2016">2016</button>
+        <button data-id="2017">2017</button>
+      </div>
     </div>
-    <div class='roster'>
+    <div class='col-md-6'>
+      <div class='col-md-12 roster'>
+      </div>
     </div>
-    <div class='topseven'>
+    <div class='col-md-3'>
+      <div class='col-md-12 topseven'>
+      </div>
     </div>
     <section class="patch">
-      <h6 id="patch-message"></h6>
+      <h4 id="patch-message"></h4>
     </section>
     <section class='team-listing'>
     </section>

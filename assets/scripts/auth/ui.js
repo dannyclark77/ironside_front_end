@@ -2,7 +2,6 @@
 
 const store = require('../store')
 const rosterUi = require('../roster/ui')
-const teamEvents = require('../team/events')
 
 const signUpSuccess = function (data) {
   $('.message-form').html('Successfully signed up. Please log in!')
@@ -25,9 +24,9 @@ const signInSuccess = function (data) {
   $('#btn-sign-out').show()
   $('.patch').show()
   $('#team-nav').show()
-  $('#all-time-nav').show()
-  $('#results').text('To create a new all-time team, or edit a currently-existing team, please select `Create/Update Team` from the nav bar above. To see All-Time Teams that have been created by other users, select `All-Time Teams` from the nav bar.')
-  // teamEvents.onGetAllTeams()
+  // $('#all-time-nav').show()
+  $('#results').text('')
+  $('#results').append('To create a new all-time team, or edit a currently-existing team, please select `Create/Update Team` from the nav bar above. <br />To see All-Time Teams that have been created by other users, select `All-Time Rosters` from the nav bar.')
   // $('#authMessage').text('test').delay(2500).fadeIn(300)
 }
 
@@ -63,8 +62,8 @@ const signOutSuccess = function (data) {
   $('#roster').text('Ironside Roster')
   $('#results').text("This website is designed to allow users to create and share their own picks for Boston Ironside's all time top 7 team. Simply sign in and then select a year to choose from Ironside's roster that year.")
   $('#team-nav').hide()
-  $('.team-listing').empty()
-  $('#all-time-nav').hide()
+  // $('.team-listing').empty()
+  // $('#all-time-nav').hide()
 }
 
 const signOutFailure = function () {

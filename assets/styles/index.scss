@@ -1,16 +1,17 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-header {
-  background-color: #b3c6ff;
-  height: 100px;
-  text-align: center;
-  width: 100%;
+a:focus {
+  outline: none;
 }
 
-h1 {
-  font-size: 60px;
-  line-height: 100px;
+#authMessage {
+  font-size: 20px;
+  text-align: center;
+}
+
+body {
+  padding-top: 70px;
 }
 
 #btn-change-password {
@@ -21,12 +22,15 @@ h1 {
   display: none;
 }
 
-.year,
-.roster,
-.topseven {
-  float: left;
-  min-height: 100px;
-  text-align: center;
+button {
+  background-color: #ffcc66;
+  border-radius: 10px;
+  color: black;
+  display: block;
+  margin: 10px auto;
+  padding: 5px 60px;
+  text-decoration-color: #ffffff;
+  text-shadow: 0 1px;
 }
 
 .forms {
@@ -35,83 +39,40 @@ h1 {
   padding: 20px 0;
 }
 
-#year,
-#roster,
-#topseven {
-  background-color: #b3c6ff;
-  border-radius: 5px;
-  float: left;
-  font-size: 20px;
+header {
+  min-height: 200px;
+  display: block;
+  width: 100%;
+  background-image: url('/images/champs-team.jpg');
+  background-size: cover;
+  opacity: 0.3;
+}
+
+img {
   height: 50px;
-  line-height: 40px;
-  margin: 10px;
+}
+
+.ironside {
+  font-size: 150px;
+  line-height: 150px;
   text-align: center;
-  display: none;
-}
-
-#year {
-  width: 22%;
-}
-
-.year {
-  width: 22%;
-  display: none;
-}
-
-#roster {
-  width: 50%;
-}
-
-.roster {
-  column-count: 3;
-  display: block;
-  width: 50%;
-}
-
-#topseven {
-  width: 22%;
-}
-
-.topseven {
-  width: 22%;
-}
-
-button {
-  background-color: #1ab2ff;
-  border-radius: 10px;
-  color: white;
-  display: block;
-  margin: 10px auto;
-  padding: 5px 60px;
-  text-decoration-color: #ffffff;
-  text-shadow: 0 1px;
-}
-
-.roster button {
-  background-color: #d9d9d9;
-  border: 0;
-  break-inside: avoid-column;
-  color: black;
-  font-family: sans-serif;
-  margin: auto;
-}
-
-.topseven button {
-  background-color: #ffcc00;
-  column-count: 1;
-}
-
-#authMessage {
-  font-size: 20px;
-  text-align: center;
+  text-shadow: 2px 2px white;
+  color: #000080;
+  top: -200px;
+  position: relative;
 }
 
 .intro {
   background-color: #ffcc66;
-  margin: 30px 0 10px;
+  margin: -140px 0 10px;
   padding: 20px 200px;
   text-align: center;
   width: 100%;
+  color: black;
+}
+
+.ironside-logo {
+  height: 50px;
 }
 
 p {
@@ -134,14 +95,90 @@ p {
   display: inline-block;
 }
 
+.player-name {
+  font-size: 16px;
+}
+
+.roster {
+  column-count: 3;
+  display: block;
+  padding-top: 10px;
+}
+
+.roster button {
+  background-color: #d9d9d9;
+  border: 0;
+  break-inside: avoid-column;
+  color: black;
+  font-family: sans-serif;
+  margin: auto;
+}
+
+.roster button:focus {
+  outline: none;
+}
+
+.sm-ironside {
+  display: none;
+  font-size: 150px;
+  line-height: 150px;
+  text-align: center;
+  text-shadow: 2px 2px white;
+  color: #000080;
+  top: -200px;
+  position: relative;
+}
+
+.team-name {
+  text-align: center;
+}
+
 #team-nav {
   display: none;
 }
 
-a:focus {
+.topseven button {
+  background-color: #ffcc66;
+  column-count: 1;
+  color: black;
+}
+
+.year {
+  display: none;
+}
+
+.year button:focus {
   outline: none;
 }
 
-#all-time-nav {
+.year,
+.roster,
+.topseven {
   display: none;
+  float: left;
+  min-height: 100px;
+  text-align: center;
+}
+
+#year,
+#roster,
+#topseven {
+  // background-color: #7FBFFF;
+  background-color: #000080;
+  border-radius: 5px;
+  font-size: 20px;
+  height: 50px;
+  line-height: 40px;
+  text-align: center;
+  display: none;
+  color: white;
+}
+
+@media (max-width: 1150px) {
+  .sm-ironside {
+    display: block;
+  }
+  .ironside {
+    display: none;
+  }
 }

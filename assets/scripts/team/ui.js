@@ -13,6 +13,10 @@ const getTeamNameSuccess = function (data) {
   $('#roster').show()
   $('#topseven').show().text('Team: ' + store.teamName)
   $('.year').show()
+  $('.roster').show()
+  $('.topseven').show()
+  $('.patch').show()
+  $('.team-listing').text('')
 }
 
 const getTeamNameFailure = function (error) {
@@ -20,6 +24,14 @@ const getTeamNameFailure = function (error) {
 }
 
 const getAllTeamsSuccess = function (data) {
+  $('#year').hide()
+  $('#roster').hide()
+  $('#topseven').hide()
+  $('.year').hide()
+  $('.roster').hide()
+  $('.topseven').hide()
+  $('.patch').hide()
+  $('.team-listing').text('')
   console.log('getAllTeamsSuccess data is ', data)
   const dataFilter = function (value, index, all) {
     return all.indexOf(value) === index
