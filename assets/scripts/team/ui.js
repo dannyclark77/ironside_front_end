@@ -38,6 +38,12 @@ const getAllTeamsSuccess = function (data) {
   $('.team-history').hide()
   $('.team-listing').text('')
   $('.most-selected-list').text('')
+  $('#results').text('')
+  if (store.user) {
+    $('#results').append('To create a new all-time team, or edit a currently-existing team, please select `Create/Update Team` from the nav bar above. <br />To see All-Time Teams that have been created by other users, select `All-Time Rosters` from the nav bar.<br />To learn more about Boston Ironside, select `Team History` from the nav bar.')
+  } else {
+    $('#results').append('This website is designed to allow users to create and share their own picks for Boston Ironside`s all time top 7 team. Click `All-Time Rosters` from the navigation bar above, or sign in to create and share your own all-time team.')
+  }
   const dataFilter = function (value, index, all) {
     return all.indexOf(value) === index
   }
@@ -77,6 +83,12 @@ const teamHistory = function () {
   $('.patch').hide()
   $('.team-listing').text('')
   $('.most-selected-list').text('')
+  $('#results').text('')
+  if (store.user) {
+    $('#results').append('To create a new all-time team, or edit a currently-existing team, please select `Create/Update Team` from the nav bar above. <br />To see All-Time Teams that have been created by other users, select `All-Time Rosters` from the nav bar.<br />To learn more about Boston Ironside, select `Team History` from the nav bar.')
+  } else {
+    $('#results').append('This website is designed to allow users to create and share their own picks for Boston Ironside`s all time top 7 team. Click `All-Time Rosters` from the navigation bar above, or sign in to create and share your own all-time team.')
+  }
   $('.team-history').show()
 }
 
