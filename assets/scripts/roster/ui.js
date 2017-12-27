@@ -36,7 +36,6 @@ const postTeamFailure = function () {
 
 const signInTopSevenSuccess = function (data) {
   topSeven.length = 0
-  console.log('sign in success data is ', data)
   data.teams.forEach(function (data) {
     if (data.team_name === store.teamName && data.user.id === store.user.id) {
       topSeven.push(data)
