@@ -3,6 +3,7 @@
 const rosterEvents = require('../roster/events')
 const store = require('../store')
 const showCreatedTeamsTemplate = require('../templates/created-teams.handlebars')
+const showMostSelectedTemplate = require('../templates/most-selected.handlebars')
 
 const getTeamNameSuccess = function (data) {
   $('#modal-team-name').modal('hide')
@@ -18,6 +19,7 @@ const getTeamNameSuccess = function (data) {
   $('.patch').show()
   $('.team-history').hide()
   $('.team-listing').text('')
+  $('.most-selected-list').text('')
 }
 
 const getTeamNameFailure = function (error) {
@@ -25,6 +27,7 @@ const getTeamNameFailure = function (error) {
 }
 
 const getAllTeamsSuccess = function (data) {
+  const allPlayers = []
   $('#year').hide()
   $('#roster').hide()
   $('#topseven').hide()
@@ -34,6 +37,7 @@ const getAllTeamsSuccess = function (data) {
   $('.patch').hide()
   $('.team-history').hide()
   $('.team-listing').text('')
+  $('.most-selected-list').text('')
   const dataFilter = function (value, index, all) {
     return all.indexOf(value) === index
   }
@@ -50,11 +54,13 @@ const getAllTeamsSuccess = function (data) {
         }
       })
       if (filterTeam.length >= 7) {
+        allPlayers.push(filterTeam)
         const showCreatedTeamsHtml = showCreatedTeamsTemplate({ players: filterTeam })
         $('.team-listing').append(showCreatedTeamsHtml)
       }
     })
   })
+  topSelectedPlayers(allPlayers)
 }
 
 const getAllTeamsFailure = function (error) {
@@ -70,7 +76,27 @@ const teamHistory = function () {
   $('.topseven').hide()
   $('.patch').hide()
   $('.team-listing').text('')
+  $('.most-selected-list').text('')
   $('.team-history').show()
+}
+
+const topSelectedPlayers = function (players) {
+  const flattenedPlayers = [].concat.apply([], players)
+  const allPlayersArray = flattenedPlayers.map(a => a.player.name)
+  const playerOccurrences = {}
+  for (let i = 0; i < allPlayersArray.length; ++i) {
+    if (!playerOccurrences[allPlayersArray[i]]) {
+      playerOccurrences[allPlayersArray[i]] = 1
+    } else {
+      ++playerOccurrences[allPlayersArray[i]]
+    }
+  }
+  const playerOccurrencesSorted = Object.keys(playerOccurrences).sort(function (a, b) {
+    return playerOccurrences[b] - playerOccurrences[a]
+  })
+  const mostSelectedPlayers = playerOccurrencesSorted.slice(0, 7)
+  const showMostSelectedPlayersHtml = showMostSelectedTemplate({ players: mostSelectedPlayers })
+  $('.most-selected-list').append(showMostSelectedPlayersHtml)
 }
 
 module.exports = {

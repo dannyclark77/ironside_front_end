@@ -75,6 +75,10 @@ img {
   height: 50px;
 }
 
+.most-selected-list {
+  text-align: center;
+}
+
 p {
   font-size: 20px;
 }
@@ -100,9 +104,9 @@ p {
 }
 
 .roster {
-  column-count: 3;
+  columns: 3;
   display: block;
-  padding-top: 10px;
+  padding: 10px 0;
 }
 
 .roster button {
@@ -112,6 +116,9 @@ p {
   color: black;
   font-family: sans-serif;
   margin: auto;
+  width: 175px;
+  padding: 2px;
+  height: 40px;
 }
 
 .roster button:focus {
@@ -140,6 +147,14 @@ p {
 
 #team-nav {
   display: none;
+}
+
+.top-player-name {
+  list-style: none;
+}
+
+.top-team {
+  color: red;
 }
 
 .topseven button {
