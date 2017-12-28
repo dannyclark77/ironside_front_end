@@ -36,7 +36,7 @@ const clickTeam = function () {
 }
 
 const onDeletePlayer = function () {
-  $('.topseven').off().on('click', 'ul', function (event) {
+  $('.topseven').off().on('click', 'button', function (event) {
     event.preventDefault()
     $(this).remove()
     const index = ui.topSeven.findIndex(x => x.id === $(this).data('id'))

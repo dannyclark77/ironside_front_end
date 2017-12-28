@@ -49,7 +49,7 @@ Back-End Server: https://afternoon-earth-95866.herokuapp.com/
 
 To-Dos:
 - Add favicon - DONE
-- Fix mobile formatting of player selection page
+- Fix mobile formatting of player selection page - DONE
 - Sign up automatically logs you in - DONE
 - Message to user that roster is created when 7 players added
 - Don't log out on refresh

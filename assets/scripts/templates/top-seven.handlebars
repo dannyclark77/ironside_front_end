@@ -1,5 +1,5 @@
 {{#each data as |team|}}
-  <ul data-id="{{team.id}}">
-    <button>{{team.player.name}}</button>
+  <ul class='roster-player'>
+    <button data-id="{{team.id}}">{{team.player.name}}</button>
   </ul>
 {{/each}}

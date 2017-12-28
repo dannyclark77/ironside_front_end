@@ -65,7 +65,7 @@ img {
 .intro {
   background-color: #ffcc66;
   margin: -140px 0 10px;
-  padding: 20px 200px;
+  padding: 20px 0;
   text-align: center;
   width: 100%;
   color: black;
@@ -126,11 +126,11 @@ p {
 }
 
 .roster-player {
-  width: 180px;
+  max-width: 250px;
   padding: 0;
 }
 
-.sm-ironside {
+.md-ironside {
   display: none;
   font-size: 150px;
   line-height: 150px;
@@ -139,6 +139,10 @@ p {
   color: #000080;
   top: -200px;
   position: relative;
+}
+
+.teams {
+  padding-top: 25px;
 }
 
 .team-history {
@@ -164,8 +168,11 @@ p {
 
 .topseven button {
   background-color: #ffcc66;
-  column-count: 1;
   color: black;
+  width: 100%;
+  padding: 2px;
+  height: 40px;
+  min-width: 175px;
 }
 
 .year {
@@ -183,6 +190,7 @@ p {
   float: left;
   min-height: 100px;
   text-align: center;
+  padding-top: 15px;
 }
 
 #year,
@@ -199,8 +207,18 @@ p {
   color: white;
 }
 
-@media (max-width: 1150px) {
-  .sm-ironside {
+@media only screen and (max-width: 1150px) and (min-width: 700px) {
+  .md-ironside {
+    display: block;
+  }
+  .ironside {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .md-ironside {
+    font-size: 75px;
     display: block;
   }
   .ironside {
