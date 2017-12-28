@@ -53,9 +53,9 @@ To-Dos:
 - Sign up automatically logs you in - DONE
 - Message to user that roster is created when 7 players added
 - Don't log out on refresh
-- Add Jordan and Hirsch to 2016 roster
+- Add Jordan and Hirsch to 2016 roster - DONE
 - More info on sign-up error - email already taken?
 - Pretty up created teams
 - Add padding/margin at the bottom of the page
-- Click event working on extended area beyond button
+- Click event working on extended area beyond button - DONE
 - Check whether team already exists for another user

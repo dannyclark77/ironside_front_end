@@ -20,7 +20,7 @@ const signInTopSeven = function () {
 }
 
 const clickTeam = function () {
-  $('.roster').off().on('click', 'ul', function (event) {
+  $('.roster').off().on('click', 'button', function (event) {
     event.preventDefault()
     const name = $(this).text().trim()
     if (ui.topSeven.some(function (obj) { return obj.player.name === name })) {
