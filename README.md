@@ -48,15 +48,14 @@ Back-End Server: https://afternoon-earth-95866.herokuapp.com/
 
 
 To-Dos:
-- Create team name form
-- Change GET for top 7 team from on sign in to on submit of team name
-- Display teams based on team name rather than user id
-- Make posted teams require 7 players
-- Adjust team players to allow 7 players for each new team-name
-- Post request to include team name
-- Display all created teams with 7 players and a team name
-- Change screen after log-in to team-name prompt
-- Add change team-name option to drop-down menu/nav bar
-- Add nav bar option - your teams + create new team
-Bonus:
-- Total the most-selected players for display
+- Add favicon
+- Fix mobile formatting of player selection page
+- Sign up automatically logs you in
+- Message to user that roster is created when 7 players added
+- Don't log out on refresh
+- Add Jordan and Hirsch to 2016 roster
+- More info on sign-up error - email already taken?
+- Pretty up created teams
+- Add padding/margin at the bottom of the page
+- Click event working on extended area beyond button
+- Check whether team already exists for another user
