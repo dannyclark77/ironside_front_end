@@ -48,9 +48,9 @@ Back-End Server: https://afternoon-earth-95866.herokuapp.com/
 
 
 To-Dos:
-- Add favicon
+- Add favicon - DONE
 - Fix mobile formatting of player selection page
-- Sign up automatically logs you in
+- Sign up automatically logs you in - DONE
 - Message to user that roster is created when 7 players added
 - Don't log out on refresh
 - Add Jordan and Hirsch to 2016 roster

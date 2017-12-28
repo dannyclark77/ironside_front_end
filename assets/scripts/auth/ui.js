@@ -4,7 +4,7 @@ const store = require('../store')
 const rosterUi = require('../roster/ui')
 
 const signUpSuccess = function (data) {
-  $('.message-form').html('Successfully signed up. Please log in!')
+  $('#modal-sign-up').modal('hide')
   $('#sign-up').trigger('reset')
 }
 
