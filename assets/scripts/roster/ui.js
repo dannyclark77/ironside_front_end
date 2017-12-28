@@ -26,8 +26,14 @@ const getPlayersFailure = function () {
 
 const postTeamSuccess = function (data) {
   topSeven.push(data.team)
+  console.log('post team success data is ', data)
+  console.log('top seven array is ', topSeven)
   displayTopSeven()
-  $('#patch-message').text('Player Successfully Added')
+  if (topSeven.length < 7) {
+    $('#patch-message').text('Player Successfully Added')
+  } else {
+    $('#patch-message').text('Your team is set. Select `All-Time Rosters` to see your team.')
+  }
 }
 
 const postTeamFailure = function () {

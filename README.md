@@ -51,7 +51,7 @@ To-Dos:
 - Add favicon - DONE
 - Fix mobile formatting of player selection page - DONE
 - Sign up automatically logs you in - DONE
-- Message to user that roster is created when 7 players added
+- Message to user that roster is created when 7 players added - DONE
 - Don't log out on refresh
 - Add Jordan and Hirsch to 2016 roster - DONE
 - More info on sign-up error - email already taken?
