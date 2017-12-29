@@ -76,8 +76,23 @@ img {
   height: 50px;
 }
 
+.md-ironside {
+  display: none;
+  font-size: 150px;
+  line-height: 150px;
+  text-align: center;
+  text-shadow: 2px 2px white;
+  color: #000080;
+  top: -200px;
+  position: relative;
+}
+
 .most-selected-list {
   text-align: center;
+}
+
+ol {
+  padding: 0;
 }
 
 p {
@@ -102,6 +117,8 @@ p {
 
 .player-name {
   font-size: 16px;
+  list-style: none;
+  text-align: center;
 }
 
 .roster {
@@ -131,17 +148,6 @@ p {
   padding: 0;
 }
 
-.md-ironside {
-  display: none;
-  font-size: 150px;
-  line-height: 150px;
-  text-align: center;
-  text-shadow: 2px 2px white;
-  color: #000080;
-  top: -200px;
-  position: relative;
-}
-
 .teams {
   padding-top: 25px;
 }
@@ -151,20 +157,25 @@ p {
   text-align: center;
 }
 
+.team-list {
+  border: 2px solid #ffcc66;
+}
+
 .team-name {
   text-align: center;
+  font-style: italic;
+  font-weight: 700;
+  color: #000080;
 }
 
 #team-nav {
   display: none;
 }
 
-.top-player-name {
-  list-style: none;
-}
-
 .top-team {
-  color: red;
+  color: #000080;
+  font-weight: 700;
+  font-style: italic;
 }
 
 .topseven button {

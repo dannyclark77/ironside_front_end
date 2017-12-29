@@ -55,7 +55,7 @@ To-Dos:
 - Don't log out on refresh
 - Add Jordan and Hirsch to 2016 roster - DONE
 - More info on sign-up error - email already taken?
-- Pretty up created teams
-- Add padding/margin at the bottom of the page
+- Pretty up created teams - DONE
+- Add padding/margin at the bottom of the page - DONE
 - Click event working on extended area beyond button - DONE
 - Check whether team already exists for another user
