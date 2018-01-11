@@ -3,7 +3,6 @@
 const showRosterTemplate = require('../templates/roster-listing.handlebars')
 const showTopSevenTemplate = require('../templates/top-seven.handlebars')
 const store = require('../store')
-const api = require('./api')
 
 const topSeven = []
 
@@ -23,8 +22,6 @@ const getPlayersFailure = function () {
 
 const postTeamSuccess = function (data) {
   topSeven.push(data.team)
-  console.log('post team success data is ', data)
-  console.log('top seven array is ', topSeven)
   displayTopSeven()
   if (topSeven.length < 7) {
     $('#patch-message').text('Player Successfully Added')
@@ -44,12 +41,6 @@ const signInTopSevenSuccess = function (data) {
       topSeven.push(data)
     }
   })
-  if (topSeven.length > 7) {
-    const result = $.grep(data.teams, function (element) {
-      return element.user.id === store.user.id
-    })
-    onDeleteEight(result[0].id)
-  }
   displayTopSeven()
 }
 
@@ -61,22 +52,9 @@ const displayTopSeven = function () {
   $('.year').show()
   $('.roster').show()
   $('.topseven').show()
-  if (topSeven.length > 7) {
-    const slicedTopSeven = topSeven.slice(-7)
-    const showTopSevenHtml = showTopSevenTemplate({ data: slicedTopSeven })
-    $('.topseven').text('')
-    $('.topseven').append(showTopSevenHtml)
-  } else {
-    const showTopSevenHtml = showTopSevenTemplate({ data: topSeven })
-    $('.topseven').text('')
-    $('.topseven').append(showTopSevenHtml)
-  }
-}
-
-const onDeleteEight = function (data) {
-  api.deleteEight(data)
-    .then(deletePlayerSuccess)
-    .catch(deletePlayerFailure)
+  const showTopSevenHtml = showTopSevenTemplate({ data: topSeven })
+  $('.topseven').text('')
+  $('.topseven').append(showTopSevenHtml)
 }
 
 const deletePlayerSuccess = function (data) {
