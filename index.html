@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Ironside's Top Seven</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+
+      <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-left ironside-logo" href="">
+                <img alt="Brand" src="https://i.imgur.com/gVvdZup.png">
+              </a>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div class="navbar-brand"></div>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class='nav-item' id='team-history'>
+                  <a href='' class='nav-link'>Team History</a>
+                </li>
+                <li class='nav-item' id='all-time-nav'>
+                  <a href='' data-id='all-time-rosters' class='nav-link'>All-Time Rosters</a>
+                </li>
+                <li class='nav-item' id='team-nav'>
+                  <a href='#modal-team-name' class='nav-link' data-toggle='modal'>Create/Update Team</a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" id="btn-sign-up" class="btn-auth" data-toggle="modal" data-target="#modal-sign-up">Sign Up</a></li>
+                    <li><a href="#" id="btn-sign-in" class="btn-auth" data-toggle="modal" data-target="#modal-sign-in">Sign In</a></li>
+                    <li><a href="#" id="btn-change-password" class="btn-auth" data-toggle="modal" data-target="#modal-change-password">Change Password</a></li>
+                    <li><a href="#" id="btn-sign-out" class="btn-auth">Sign Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <header>
+      </header>
+      <h1 class='ironside'>Boston Ironside</h1>
+      <h1 class='md-ironside'>Ironside</h1>
+    <section class='intro col-md-12'>
+      <div class='col-md-2'></div>
+      <div class='col-md-8'>
+        <h2>Ironside All Time Team Selection</h2>
+        <p id='results'>This website is designed to allow users to create and share their own
+        picks for Boston Ironside's all time top 7 team. Click 'All-Time Rosters' from the
+        navigation bar above, or sign in to create and share your own all-time team.</p>
+      </div>
+      <div class='col-md-2'></div>
+    </section>
+    <div class='teams col-md-12'>
+        <div class='col-md-3'>
+          <div class='col-md-12' id='year'>Select Year</div>
+          <div class='col-md-12 year'>
+            <button data-id="2008">2008</button>
+            <button data-id="2009">2009</button>
+            <button data-id="2010">2010</button>
+            <button data-id="2011">2011</button>
+            <button data-id="2012">2012</button>
+            <button data-id="2013">2013</button>
+            <button data-id="2014">2014</button>
+            <button data-id="2015">2015</button>
+            <button data-id="2016">2016</button>
+            <button data-id="2017">2017</button>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class='col-md-12' id='roster'>Ironside Roster</div>
+          <div class='col-md-12 roster'></div>
+        </div>
+        <div class='col-md-3'>
+            <div class='col-md-12' id='topseven'>All Time Ironside Roster</div>
+            <div class='col-md-12 topseven'></div>
+        </div>
+    </div>
+    <section class="patch">
+      <h4 id="patch-message"></h4>
+    </section>
+    <section class='col-md-12 most-selected-list'>
+    </section>
+    <section class='team-listing'>
+    </section>
+    <section class='team-history'>
+      <h1>Ironside Team History</h1>
+      <p class='col-md-2'></p>
+      <p class='col-md-8'>Boston Ironside is a world-renowned ultimate frisbee team based in Boston, MA.<br /><br />
+        Ironside was formed from the merger of Death or Glory, a record-setting
+        team based in Boston that earned 6 consecutive national championships in the '90s,
+        and Twisted Metal, an upstart crew of young guns from Cambridge. After a transitional year in 2007,
+        Boston Ironside was officially born in 2008.<br /><br />
+        From 2008-2017, Boston Ironside achieved significant success on the national
+        and world stage. The team placed no lower than 5th at the US National Championships
+        during these years, and earned a record 9 consecutive semi-finals berths from
+        2008-2016. Ironside advanced to the national championship game five times
+        (2008, 2010, 2011, 2014, 2016), and brought the championship back to Boston
+        in 2016.<br /><br />
+        Boston Ironside has represented the United States at international competitions in Prague, Czech Republic,
+        and Lecco, Italy. The roster has also boasted five different players who have earned
+        the prestigious Callahan Award as the best player in college ultimate.
+      </p>
+      <p class='col-md-2'></p>
+    </section>
+    <!-- Modal Team Name -->
+    <div class='modal fade' id='modal-team-name' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true' style='display: none;'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+            <div class='modal-title' id='exampleModalLabel'>Enter Team Name (can be existing team or new team)</div>
+          </div>
+          <form id='team-name'>
+            <div class='modal-body'>
+              <div class='message-form'></div>
+              <label for='enter-team-name'>Team Name</label>
+              <input id='enter-team-name' class='form-control' type='text' name='teamName' placeholder='New or Existing Team Name'>
+            </div>
+            <div class='modal-footer'>
+              <button type='submit' class='btn btn-primary pull-right' name='submit' value='Team Name'>Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal auth -->
+  <!-- modal sign up -->
+  <div class="modal fade" id="modal-sign-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="disply: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          <div class="modal-title" id="exampleModalLabel">Sign Up</div>
+        </div>
+        <form id="sign-up">
+          <div class="modal-body">
+            <div class='message-form'></div>
+
+            <label for="email-address">Email</label>
+            <input id='email-address' class="form-control" type="text" name="credentials[email]" placeholder="Email">
+            <div class="break">
+              <label for='password'>Password</label>
+              <input class="form-control" id="password" type="password" name="credentials[password]" placeholder="Password">
+            </div>
+            <div class="break">
+              <label for="password-confirmation">Password confirmation</label>
+              <input class="form-control" id="password-confirmation" type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary pull-right" name="submit" value="Sign Up">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal in auth -->
+  <div class="modal fade" id="modal-sign-in" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="disply: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          <div class="modal-title" id="exampleModalLabel">Sign In</div>
+        </div>
+        <form id="sign-in">
+          <div class="modal-body">
+            <div class='message-form'></div>
+            <div class="break">
+              <label for="email-address">Email</label>
+              <input class="form-control" id="email-address-sign-in" type="text" name="credentials[email]" placeholder="Email">
+            </div>
+            <div class="break">
+              <label for='password'>Password</label>
+              <input class="form-control" id="password-sign-in" type="password" name="credentials[password]" placeholder="Password">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary pull-right" name="submit" value="Sign In">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+
+  <!-- Modal change password auth -->
+  <div class="modal fade" id="modal-change-password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="disply: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          <div class="modal-title" id="exampleModalLabel">Change Password</div>
+        </div>
+        <form id="change-password">
+
+          <div class="modal-body">
+            <div class='message-form'></div>
+            <div class="break">
+              <label for="old-password">Old Password</label>
+              <input class="form-control" id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
+            </div>
+            <div class="break">
+              <label for="new-password">New Password</label>
+              <input class="form-control" id="new-password" type="password" name="passwords[new]" placeholder="New Password">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary pull-right" name="submit" value="Change Password!">Change Password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    </body>
+</html>
