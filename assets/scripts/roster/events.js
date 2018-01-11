@@ -7,7 +7,7 @@ const store = require('../store')
 const onGetPlayers = function (event) {
   event.preventDefault()
   store.year = $(this).data('id')
-  api.getPlayers()
+  api.getPlayers(store.year)
     .then(ui.getPlayersSuccess)
     .then(clickTeam)
     .catch(ui.getPlayersFailure)

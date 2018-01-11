@@ -9,10 +9,7 @@ const topSeven = []
 
 const getPlayersSuccess = function (data) {
   store.players = data.players
-  const filteredPlayers = store.players.filter(function (obj) {
-    return obj.year === store.year
-  })
-  const showRosterHtml = showRosterTemplate({ players: filteredPlayers })
+  const showRosterHtml = showRosterTemplate({ players: store.players })
   $('.roster').empty()
   $('.roster').append(showRosterHtml)
   store.players = null

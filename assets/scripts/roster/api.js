@@ -3,10 +3,11 @@
 const config = require('../config')
 const store = require('../store')
 
-const getPlayers = function () {
+const getPlayers = function (year) {
   return $.ajax({
     url: config.apiOrigin + '/players/',
-    method: 'GET'
+    method: 'GET',
+    data: {'year': year}
   })
 }
 
